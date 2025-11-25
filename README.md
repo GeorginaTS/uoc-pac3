@@ -1,27 +1,34 @@
-# practica3-vue
+# Dragon Ball Character Browser
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicació web desenvolupada amb Vue 3 que permet explorar personatges de Dragon Ball, veure els seus detalls i simular combats entre ells.
 
-## Recommended IDE Setup
+## 🚀 Característiques
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Llista de Personatges**: Visualitza tots els personatges amb scroll infinit (8 personatges per pàgina)
+- **Detall del Personatge**: Consulta informació detallada de cada personatge (Ki, raça, afiliació, descripció)
+- **Arena de Combat**: Simula combats entre Z Fighters i enemics
+  - Selecciona un Z Fighter com a lluitador
+  - Enemic aleatori seleccionat automàticament
+  - Sistema de combat basat en Ki i Ki màxim
+  - Registre detallat del combat amb dos atacs i resultat final
+- **Pàgina About**: Informació del desenvolupador amb integració de perfil GitHub
+- **Disseny Responsiu**: Interfície adaptada a diferents mides de pantalla
+- **Tema Personalitzat**: Sistema de variables CSS per a colors i estils consistents
 
-## Recommended Browser Setup
+## 🛠️ Tecnologies
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- **Vue 3** (Composition API amb `<script setup>`)
+- **TypeScript** per a type safety
+- **Vue Router** per a navegació
+- **Pinia** per a gestió d'estat
+- **Vite** com a build tool
+- **Vitest** per a testing
+- **ESLint** per a linting
 
-## Type Support for `.vue` Imports in TS
+## 📡 API
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Utilitza la [Dragon Ball API](https://dragonball-api.com/api) per obtenir dades dels personatges.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
 
 ## Project Setup
 
@@ -52,3 +59,30 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+## 📂 Estructura del Projecte
+
+```
+src/
+├── components/
+│   ├── CharacterCard.vue    # Targeta de personatge
+│   └── Header.vue            # Capçalera amb navegació
+├── views/
+│   ├── HomePage.vue          # Pàgina d'inici
+│   ├── ListPage.vue          # Llista de personatges
+│   ├── DetailPage.vue        # Detall del personatge
+│   ├── CombatPage.vue        # Arena de combat
+│   └── AboutPage.vue         # Sobre el desenvolupador
+├── stores/
+│   └── constants.ts          # Store de constants (API URL)
+├── router/
+│   └── index.ts              # Configuració de rutes
+└── main.css                  # Estils globals i variables CSS
+```
+
+## 👤 Autor
+
+Georgina Tomàs
+
+- GitHub: [@GeorginaTS](https://github.com/GeorginaTS)
+- LinkedIn: [Georgina Tomàs](https://www.linkedin.com/in/georgina-tomas/)
