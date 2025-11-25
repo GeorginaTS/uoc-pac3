@@ -39,6 +39,10 @@ const goToDetail = () => {
         <span class="label">Ki:</span>
         <span class="ki">{{ character.ki }}</span>
       </div>
+      <div class="info-row">
+        <span class="label">Afiliació:</span>
+        <span class="affiliation">{{ character.affiliation }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -119,6 +123,12 @@ const goToDetail = () => {
 
 .ki {
   color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.affiliation {
+  color: var(--color-accent);
   font-weight: 700;
   font-size: 0.95rem;
 }

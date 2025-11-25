@@ -45,7 +45,7 @@
 }
 
 h1 {
-  color: #ff6b00;
+  color: var(--color-primary);
   font-size: 2.5rem;
   margin-bottom: 1rem;
   animation: fadeIn 1s ease-in;
@@ -53,7 +53,7 @@ h1 {
 
 p {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--color-text-light);
   animation: fadeIn 1.5s ease-in;
 }
 

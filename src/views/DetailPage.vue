@@ -150,7 +150,7 @@ onMounted(() => {
 .error {
   text-align: center;
   padding: var(--spacing-lg);
-  color: #dc2626;
+  color: var(--color-primary);
 }
 
 .back-link {
@@ -200,7 +200,7 @@ onMounted(() => {
 
 .character-image {
   width: 100%;
-  max-width: 350px;
+  max-height: 50vh;
   height: auto;
   object-fit: contain;
   border-radius: var(--radius-sm);

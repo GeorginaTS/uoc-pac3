@@ -39,3 +39,20 @@ body {
 #app {
   min-height: 100vh;
 }
+
+h1 {
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+.error {
+  color: var(--color-error, #d32f2f);
+}
