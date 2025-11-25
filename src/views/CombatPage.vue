@@ -255,13 +255,6 @@ h1::after {
   border-radius: var(--radius-sm);
 }
 
-.loading {
-  text-align: center;
-  font-size: 1.2rem;
-  color: var(--color-text-light);
-  padding: var(--spacing-xl);
-}
-
 .combat-container {
   display: flex;
   flex-direction: column;

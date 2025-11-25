@@ -118,41 +118,6 @@ onMounted(() => {
   margin: 0 auto;
 }
 
-.loading {
-  text-align: center;
-  padding: 3rem;
-}
-
-.spinner {
-  border: 3px solid var(--color-border);
-  border-top: 3px solid var(--color-primary);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto 1rem;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.loading p {
-  color: var(--color-text-light);
-  font-size: 1rem;
-}
-
-.error {
-  text-align: center;
-  padding: var(--spacing-lg);
-  color: var(--color-primary);
-}
-
 .back-link {
   display: inline-block;
   margin-top: var(--spacing-md);

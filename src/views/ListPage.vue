@@ -2,13 +2,23 @@
   <div class="list-page">
     <h1>Personatges de Dragon Ball</h1>
 
+    <SearchBar @search="handleSearch" />
+
     <div v-if="initialLoading" class="loading">Carregant personatges...</div>
 
     <div v-else-if="error" class="error">{{ error }}</div>
 
     <div v-else>
       <div class="characters-grid">
-        <CharacterCard v-for="character in characters" :key="character.id" :character="character" />
+        <CharacterCard
+          v-for="character in filteredCharacters"
+          :key="character.id"
+          :character="character"
+        />
+      </div>
+
+      <div v-if="filteredCharacters.length === 0 && searchQuery" class="no-results">
+        No s'han trobat personatges amb "{{ searchQuery }}"
       </div>
 
       <div v-if="loadingMore" class="loading-more">Carregant més personatges...</div>
@@ -19,9 +29,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useConstantsStore } from '../stores/constants'
 import CharacterCard from '../components/CharacterCard.vue'
+import SearchBar from '../components/SearchBar.vue'
 
 interface Character {
   id: number
@@ -43,8 +54,22 @@ const error = ref<string | null>(null)
 const currentPage = ref(1)
 const hasMore = ref(true)
 const sentinel = ref<HTMLElement | null>(null)
+const searchQuery = ref('')
 
 const ITEMS_PER_PAGE = 8
+
+const filteredCharacters = computed(() => {
+  if (!searchQuery.value.trim()) {
+    return characters.value
+  }
+  return characters.value.filter((character) =>
+    character.name.toLowerCase().includes(searchQuery.value.toLowerCase()),
+  )
+})
+
+const handleSearch = (query: string) => {
+  searchQuery.value = query
+}
 
 const fetchCharacters = async (page: number) => {
   try {
@@ -150,32 +175,21 @@ h1::after {
   border-radius: 2px;
 }
 
-.loading,
-.error {
-  text-align: center;
-  padding: 2rem;
-  font-size: 1.2rem;
-}
-
-.error {
-  color: var(--color-primary);
-}
-
 .characters-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-.loading-more {
-  text-align: center;
-  padding: 2rem;
-  color: var(--color-text-light);
-  font-size: 1rem;
-}
-
 .sentinel {
   height: 1px;
   width: 100%;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-light);
+  font-size: 1.1rem;
 }
 </style>
